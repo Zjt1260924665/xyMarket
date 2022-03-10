@@ -1,0 +1,36 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: secret
+
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /swagger/**
+      - /**/v2/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**
+      - /actuator/**
+      - /home/**
+      - /product/**
+      - /brand/**
+      - /sso/**
+      - /files/**
+
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
